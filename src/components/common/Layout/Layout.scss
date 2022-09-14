@@ -1,14 +1,6 @@
 .layout-root {
-  background-color: #282c34;;
-  display: grid;
-  grid-template-rows: 1fr 5fr 1fr;
-  grid-template-areas: 
-    "header"
-    "body"
-    "footer"
-  ;
+  height: 100%;
 
-  &__container {
-    grid-area: "body";
-  }
+  // background-color: #282c34;
+  
 }

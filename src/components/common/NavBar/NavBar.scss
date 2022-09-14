@@ -1,7 +1,7 @@
-.header-root {
+.navbar-root {
   display: grid;
   justify-items: center;
   align-items: center;
-  
-  grid-area: header;
+
+  min-height: 150px;
 }

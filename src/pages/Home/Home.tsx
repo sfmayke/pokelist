@@ -1,4 +1,4 @@
-import { Container } from '../../components/ui';
+import { Card, Container } from '../../components/ui';
 import useGetAllPokemons from '../../services/swr';
 import './Home.scss';
 
@@ -12,15 +12,13 @@ function Home() {
   // if (!data) return <div>carregando...</div>
 
   return (
-    <div className="App">
-      <Container>
-        <div className="App__container">
-          {pokemonData && pokemonData.data.map((pokemon: any) => (
-            <img key={pokemon.id} src={pokemon.images.small} alt="pokemon" />
-          ))}
-        </div>
-      </Container>
-    </div>
+    <Container>
+      <div className="home-root">
+        {pokemonData && pokemonData.data.map((pokemon: any) => (
+          <Card key={pokemon.id} pokemon={pokemon} />
+        ))}
+      </div>
+    </Container>
   );
 }
 

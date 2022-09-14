@@ -1,15 +1,9 @@
-.App {
-  text-align: center;
-  
-  &__container {
-    min-height: 100vh;
-    display: -ms-inline-grid;
-    gap: 6;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
+.home-root {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  gap: 20px;
 }
 
 
