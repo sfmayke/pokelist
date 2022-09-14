@@ -1,16 +1,14 @@
 .App {
   text-align: center;
-  
+
   &__container {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: -ms-inline-grid;
-    gap: 6;
     align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
+    background-color: #282c34;
     color: white;
+    display: inline-grid;
+    font-size: calc(10px + 2vmin);
+    gap: 6;
+    justify-content: center;
+    min-height: 100vh;
   }
 }
-
-

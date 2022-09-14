@@ -1,7 +1,3 @@
 export default function Head() {
-  return(
-    <head>
-      
-    </head>
-  );
+  return <head></head>;
 }

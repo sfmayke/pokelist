@@ -1,4 +1,4 @@
-import './Card.scss';
+import "./Card.scss";
 
 // type Weaknesses = {
 //   type: string,
@@ -10,36 +10,32 @@ import './Card.scss';
 //   value: number
 // }
 
-type Pokemon = {
-  id: number,
-  name: string
+export interface Pokemon {
+  id: number;
+  name: string;
   images: {
-    small: string
-  },
+    small: string;
+  };
   // resistances: [Resistances],
   // weaknesses: [Weaknesses]
-  types: [string]
+  types: [string];
 }
 
 interface CardProps {
-  pokemon: Pokemon
+  pokemon: Pokemon;
 }
 
 export default function Card({ pokemon }: CardProps) {
-  return(
+  return (
     <div className="card-root">
-      <img  src={pokemon.images.small} alt="pokemon" />
+      <img src={pokemon.images.small} alt="pokemon" />
       <div className="card-root__box-info">
         <span>Id</span>
         {pokemon.id}
         <span>Nome</span>
         {pokemon.name}
         <span>Tipos</span>
-        {
-          pokemon.types.map((type) => 
-            type
-          )
-        }
+        {pokemon.types.map((type) => type)}
       </div>
     </div>
   );

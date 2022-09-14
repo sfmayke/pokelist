@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import './NotFound.scss';
+import "./NotFound.scss";
 
 export default function NotFound() {
-  return(
+  return (
     <div className="notfound-root">
       <img src="./404-Page-Not-Found.png" alt="img-page-not-found" />
       <p>

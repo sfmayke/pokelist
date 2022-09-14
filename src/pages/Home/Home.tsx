@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom';
-import { Card, Container } from '../../components/ui';
-import useGetAllPokemons from '../../services/swr';
-import './Home.scss';
+import { Link } from "react-router-dom";
+import { Card, Container } from "../../components/ui";
+import { Pokemon } from "../../components/ui/Card/Card";
+import useGetAllPokemons from "../../services/swr";
+import "./Home.scss";
 
 function Home() {
-
-  const { pokemonData, error } = useGetAllPokemons();
+  const { pokemonData } = useGetAllPokemons();
 
   // const { data, error } = useSWR("https://api.pokemontcg.io/v2/cards?pageSize=3&page=1", fetcher)
   console.log(pokemonData);
@@ -15,8 +15,8 @@ function Home() {
   return (
     <Container>
       <div className="home-root">
-        {pokemonData && pokemonData.data.map((pokemon: any) => (
-          <Link to={`/pokemon/${pokemon.id}`}>
+        {pokemonData?.data.map((pokemon: Pokemon) => (
+          <Link key={pokemon.id} to={`/pokemon/${pokemon.id}`}>
             <Card key={pokemon.id} pokemon={pokemon} />
           </Link>
         ))}

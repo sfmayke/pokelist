@@ -1,26 +1,22 @@
 .card-root {
+  align-items: center;
   display: flex;
+  filter: drop-shadow(0 0 0.75rem gray);
   flex-direction: column;
   gap: 10px;
-  align-items: center;
   justify-content: center;
-
-  filter: drop-shadow(0 0 0.75rem gray);
-
   padding: 10px;
 
   &__box-info {
+    align-items: center;
+    background-color: white;
+    border: 1px solid black;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: space-around;
-
-    background-color: white;
-    width: 90%;
     padding: 5px;
+    width: 90%;
 
-    border: 1px solid black;
-    
     span {
       font-size: 0.9rem;
       font-weight: 700;
