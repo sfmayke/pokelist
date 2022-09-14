@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Card, Container } from '../../components/ui';
 import useGetAllPokemons from '../../services/swr';
 import './Home.scss';
@@ -15,7 +16,9 @@ function Home() {
     <Container>
       <div className="home-root">
         {pokemonData && pokemonData.data.map((pokemon: any) => (
-          <Card key={pokemon.id} pokemon={pokemon} />
+          <Link to={`/pokemon/${pokemon.id}`}>
+            <Card key={pokemon.id} pokemon={pokemon} />
+          </Link>
         ))}
       </div>
     </Container>

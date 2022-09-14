@@ -11,3 +11,13 @@ export default function useGetAllPokemons () {
     error: error
   }
 }
+
+export function useCheckPokemonID(id: string) {
+  const { data, error } = useSWR(`https://api.pokemontcg.io/v2/cards/${id}`, fetcher);
+
+  return {
+    pokemonData: data,
+    loading: !error && !data,
+    error: error
+  }
+}
