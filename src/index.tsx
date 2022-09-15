@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import React from "react";
 import Home from "./pages/Home";
-import Pokemon from "./pages/Pokemon";
+import PokemonDetail from "./pages/PokemonDetail";
 import NotFound from "./pages/NotFound";
 import { Layout } from "./components/common";
 
@@ -22,18 +22,24 @@ const router = createBrowserRouter([
       },
       {
         path: "pokemon/:id",
-        element: <Pokemon />,
+        element: <PokemonDetail />,
         loader: async ({ params }) => {
+          let response;
           try {
-            const response = await (
+            response = await (
               await fetch(
                 `https://api.pokemontcg.io/v2/cards/${params.id as string}`
               )
             ).json();
-            return response.error.code === 404 ? redirect("/") : response;
+
+            if(response.error.code === 404)
+              redirect("/")
+
           } catch (error) {
             redirect("/");
           }
+
+          return response;
         },
       },
     ],

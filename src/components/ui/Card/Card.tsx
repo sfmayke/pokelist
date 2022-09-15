@@ -1,24 +1,34 @@
 import "./Card.scss";
 
-// type Weaknesses = {
-//   type: string,
-//   value: number
-// }
+export interface Attacks {
+  name: string,
+  cost: [string],
+  damage: string,
+  convertedEnergyCost: number,
+  text: string
+}
 
-// type Resistances = {
-//   type: string,
-//   value: number
-// }
+export interface Weaknesses {
+  type: string,
+  value: number
+}
+
+export interface Resistances {
+  type: string,
+  value: number
+}
 
 export interface Pokemon {
   id: number;
   name: string;
   images: {
     small: string;
+    large: string;
   };
-  // resistances: [Resistances],
-  // weaknesses: [Weaknesses]
+  resistances: [Resistances],
+  weaknesses: [Weaknesses]
   types: [string];
+  attacks: [Attacks]
 }
 
 interface CardProps {
