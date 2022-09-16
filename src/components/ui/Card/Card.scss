@@ -5,13 +5,18 @@
   flex-direction: column;
   gap: 15px;
 
-  filter: drop-shadow(10px 10px 0px Silver);
+  img {
+    max-width: 255px;
+    max-height: 380px;
+  }
 
-  animation: scaleIn .25s;
+  filter: drop-shadow(10px 10px 0px white);
+
+  animation: scaleIn .75s;
 
   .react-loading-skeleton {
-    width: 245px;
-    height: 342px;
+    width: 255px;
+    height: 380px;
   }
 
   &__box-info {

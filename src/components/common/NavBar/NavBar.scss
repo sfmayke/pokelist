@@ -3,4 +3,13 @@
   display: grid;
   justify-items: center;
   min-height: 150px;
+
+  input {
+    min-height: 40px;
+    min-width: 300px;
+    text-indent: 10px;
+
+    border-radius: 20px;
+    filter: drop-shadow(10px 10px 0px white);
+  }
 }

@@ -1,7 +1,7 @@
 .home-root {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 40px;
   justify-content: center;
 
   &__loading {
@@ -10,9 +10,11 @@
     justify-content: center;
     align-items: center;
 
+    color: white;
     padding: 60px;
-    
     svg {
+      border: 5px solid white;
+      border-radius: 100%;
       width: 50px;
       
       animation-name: spin;

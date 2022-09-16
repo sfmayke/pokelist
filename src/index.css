@@ -25,8 +25,10 @@ code {
 @keyframes scaleIn {
   from {
     scale: 0%;
+    rotate: y 0deg;
   }
   to {
     scale: 100%;
+    rotate: y 360deg;
   }
 }

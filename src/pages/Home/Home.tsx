@@ -5,21 +5,17 @@ import { Card, Container } from "../../components/ui";
 import { Pokemon } from "../../components/ui/Card/Card";
 import Icon from "@ant-design/icons";
 import type { CustomIconComponentProps } from '@ant-design/icons/lib/components/Icon';
-import useGetAllPokemons from "../../services/swr";
+import useGetPokemons from "../../services/swr";
 import "./Home.scss";
 
 function Home() {
-  const { pokemonData, error, size, setSize, isValidating } = useGetAllPokemons();
+  const { pokemonData, error, size, setSize } = useGetPokemons();
 
   const isLoadingInitialData = !pokemonData && !error;
-  const isRefreshing = isValidating && pokemonData && pokemonData.length === size;
 
   async function loadMore () {
-    return await setSize(size + 1)
+    return await setSize(size + 1);
   }
-
-  console.log('isRefreshing', isRefreshing);
-  console.log('isLoadingInitialData', isLoadingInitialData);
 
   const PokeballSvg = () => (
     <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1324.2 1318.9">
@@ -50,7 +46,7 @@ function Home() {
       {!isLoadingInitialData && <InView 
         trackVisibility 
         delay={700} 
-        onChange={ (inView) => inView && loadMore()} 
+        onChange={ (inView) => inView && loadMore() } 
       >
         <div className="home-root__loading">
           <PokeballIcon />

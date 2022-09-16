@@ -54,12 +54,14 @@ export default function Card({ pokemon }: CardProps) {
               <span><b>Id:</b> {pokemon.id}</span><br/>
               <span><b>Nome:</b> {pokemon.name}</span>
             </div>
-            <div>
-              <span><b>Tipos</b></span><br/>
-              <span>
-                {pokemon.types.map((type) => type)}
-              </span>
-            </div>
+            { pokemon.types && 
+              <div>
+                <span><b>Tipos</b><br/></span>
+                <span>
+                  {pokemon.types.map((type) => type)}
+                </span>
+              </div>
+            }
           </div>
         )}
       </>
