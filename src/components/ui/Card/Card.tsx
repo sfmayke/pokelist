@@ -1,4 +1,8 @@
 import "./Card.scss";
+import 'react-loading-skeleton/dist/skeleton.css'
+import { useState } from 'react';
+import Skeleton from "react-loading-skeleton";
+import Tilt from 'react-parallax-tilt';
 
 export interface Attacks {
   name: string,
@@ -36,17 +40,29 @@ interface CardProps {
 }
 
 export default function Card({ pokemon }: CardProps) {
+  const [useSkeleton, setUseSkeleton] = useState<boolean>(true);
+
   return (
     <div className="card-root">
-      <img src={pokemon.images.small} alt="pokemon" />
-      <div className="card-root__box-info">
-        <span>Id</span>
-        {pokemon.id}
-        <span>Nome</span>
-        {pokemon.name}
-        <span>Tipos</span>
-        {pokemon.types.map((type) => type)}
-      </div>
+      <>
+        <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10}>
+          <img src={pokemon.images.small} onLoad={() => setUseSkeleton(false)} alt="pokemon" />
+        </Tilt>
+        { useSkeleton ? <Skeleton /> : (
+          <div className="card-root__box-info">
+            <div>
+              <span><b>Id:</b> {pokemon.id}</span><br/>
+              <span><b>Nome:</b> {pokemon.name}</span>
+            </div>
+            <div>
+              <span><b>Tipos</b></span><br/>
+              <span>
+                {pokemon.types.map((type) => type)}
+              </span>
+            </div>
+          </div>
+        )}
+      </>
     </div>
   );
 }

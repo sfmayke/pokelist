@@ -35,12 +35,6 @@ export default function PokemonDetail() {
             <h4><u>Description</u></h4>
             <span>{selectedAttack?.text}</span>
             <CloseCircleFilled onClick={() => handleModal()} style={{fontSize: "24px", color:"#cd282f"}} />
-            {/* {data.attacks?.map((attack: Attacks) => (
-              <span key={attack.name}>Name: {attack.name}</span>
-              <span key={attack.name}>Name: {attack.name}</span>
-              <span key={attack.name}>Name: {attack.name}</span>
-              <span key={attack.name}>Name: {attack.name}</span>
-            ))} */}
           </div>
         </div>}
         <div className="pokemondetail-root__container">
@@ -64,7 +58,7 @@ export default function PokemonDetail() {
               <span key={data.id}>{weaknesses.type}: {weaknesses.value}</span>
             ))}
             {/* Attacks */}
-            {data.weaknesses && <h2>Attacks</h2>}
+            {data.attacks && <h2>Attacks</h2>}
             {data.attacks?.map((attack: Attacks) => (
               <span onClick={() => {handleModal(); setSelectedAttack(attack)}} key={attack.name}>{attack.name}</span>
             ))}

@@ -1,27 +1,36 @@
 .card-root {
-  align-items: center;
   display: flex;
-  filter: drop-shadow(0 0 0.75rem gray);
-  flex-direction: column;
-  gap: 10px;
+  align-items: center;
   justify-content: center;
-  padding: 10px;
+  flex-direction: column;
+  gap: 15px;
+
+  filter: drop-shadow(10px 10px 0px Silver);
+
+  animation: scaleIn .25s;
+
+  .react-loading-skeleton {
+    width: 245px;
+    height: 342px;
+  }
 
   &__box-info {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
 
-    padding: 5px;
+    padding: 10px;
     width: 90%;
 
-    border: 1px solid black;
+    font-size: 12px;
+    
     background-color: white;
+    border: thin solid DarkGray ;
+    border-radius: 30px;
 
     span {
-      font-size: 0.9rem;
-      font-weight: 700;
+      font-size: 0.6rem;
       text-transform: uppercase;
     }
   }
