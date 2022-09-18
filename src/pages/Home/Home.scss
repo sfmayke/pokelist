@@ -5,10 +5,18 @@
   justify-content: center;
 
   &__loading {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      
+      img {
+        width: 300px;
+    
+        filter: drop-shadow(10px 10px 0px white);
+      }
+    }
 
     color: white;
     padding: 60px;

@@ -1,17 +1,21 @@
-// import { ChangeEvent } from "react";
-import useGetPokemons from "../../../services/swr";
+import { ChangeEvent } from "react";
+import { useAppDispatch, useAppSelector } from './../../../redux/hooks';
+import { changeSearchTerm } from './../../../redux/search-slice';
 import "./NavBar.scss";
 
 export default function NavBar() {
-
-  // function handleInputChange(e: ChangeEvent<HTMLInputElement>) {
-  //   console.log(e.target.value)
-  //   ;
-  // }
+  
+  const dispatch = useAppDispatch();
+  const searchTerm = useAppSelector((state) => state.search.searchTerm);
+  
+  function handleInputChange(e: ChangeEvent<HTMLInputElement>) {
+    dispatch(changeSearchTerm(e.target.value));
+    ;
+  }
 
   return (
     <div className="navbar-root">
-      <input type="text" placeholder="Search..." onChange={(e) => useGetPokemons({name: `${e.target.value}*`})} />
+      <input type="text" value={searchTerm} placeholder="Search..." onChange={(e) => handleInputChange(e)} />
     </div>
   );
 }

@@ -14,8 +14,6 @@ export default function PokemonDetail() {
 
   const modal = useRef<HTMLDivElement>(null);
 
-  console.log(data)
-
   function handleModal() {
     setIsOpen(!isOpen);
     if(modal.current)
@@ -39,7 +37,7 @@ export default function PokemonDetail() {
         </div>}
         <div className="pokemondetail-root__container">
           <div className="pokemondetail-root__img-container">
-            <img src={data.images.large} width="50%" alt="large-pokemon-img" />
+            <img src={data.images.large} width="50%" alt="large-pokemon-img" loading="eager" />
           </div>
           <div className="pokemondetail-root__details">
             <h1>{data.name}</h1>

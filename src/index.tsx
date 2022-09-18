@@ -10,6 +10,8 @@ import Home from "./pages/Home";
 import PokemonDetail from "./pages/PokemonDetail";
 import NotFound from "./pages/NotFound";
 import { Layout } from "./components/common";
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 
 const router = createBrowserRouter([
   {
@@ -20,29 +22,29 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
       },
-      {
-        path: "pokemon/:id",
-        element: <PokemonDetail />,
-        loader: async ({ params }) => {
-          let response;
-          try {
-            response = await (
-              await fetch(
-                `https://api.pokemontcg.io/v2/cards/${params.id as string}`
-              )
-            ).json();
-
-            if(response.error.code === 404)
-              redirect("/")
-
-          } catch (error) {
-            redirect("/");
-          }
-
-          return response;
-        },
-      },
     ],
+  },
+  {
+    path: "pokemon/:id",
+    element: <PokemonDetail />,
+    loader: async ({ params }) => {
+      let response;
+      try {
+        response = await (
+          await fetch(
+            `https://api.pokemontcg.io/v2/cards/${params.id as string}`
+          )
+        ).json();
+
+        if(response.error.code === 404)
+          redirect("/")
+
+      } catch (error) {
+        redirect("/");
+      }
+
+      return response;
+    },
   },
   {
     path: "*",
@@ -56,6 +58,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store }>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
